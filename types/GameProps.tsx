@@ -1,32 +1,35 @@
 export type GameState = {
-  score: number,
-  start_time: number,
-  time: number,
-  ball_x: number,
-  ball_y: number,
-  direction: number,
-  lr_state: string,
-  target : Target | undefined,
-  bonus : Bonus | undefined
+  score: number;
+  start_time: number;
+  time: number;
+  ball_x: number;
+  ball_y: number;
+  direction: number;
+  lr_state: string;
+  target: Target | undefined;
+  bonus: Bonus | undefined;
+  dying: boolean;
+  death_counter: number;
 };
 
 export type Target = {
-    pos: number, // horizontal grid position, pixel location is (4, 16+pos*32)
-    points: number
-}
+  pos: number; // horizontal grid position, pixel location is (4, 16+pos*32)
+  points: number;
+};
 
 export type Bonus = {
-    pos: number, // horizontal grid position, pixel location is (4, 16+pos*32)
-    points: number,
-    age: number
-}
+  pos: number; // horizontal grid position, pixel location is (4, 16+pos*32)
+  points: number;
+  age: number;
+};
 
 export type GameProps = {
-    state: GameState
+  state: GameState;
 };
 
 export enum AppState {
-    Playing = 1,
-    Finished,
-    Splash
-};
+  Playing = 1,
+  Restarting,
+  Finished,
+  Splash,
+}
